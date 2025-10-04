@@ -62,6 +62,7 @@ namespace AzureOS.System.Core
             Register(new ShutdownCmd());
             Register(new RmCmd());
             Register(new DateTimeCmd());
+            Register(new CatCmd());
         }
     }
 }
