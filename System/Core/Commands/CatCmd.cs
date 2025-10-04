@@ -18,7 +18,7 @@ namespace AzureOS.System.Core.Commands
             if (args.Options.Count == 0)
                 return CommandResult.Error;
 
-            if (!File.Exists(args.Options[0]))
+            if (!File.Exists(Path.Combine(DirUtils.GetCurrentDirectory(), args.Options[0])))
             {
                 Logger.Log($"File {args.Options[0]} not found!", LogType.Error);
                 return CommandResult.Error;
