@@ -15,12 +15,19 @@ namespace AzureOS.System.VFSUtils
             if (newPath == CurrentDirectory || newPath == "." || newPath == GetRootPath() || string.IsNullOrEmpty(newPath))
                 return;
 
-            if (newPath == ".." && info.Parent != null)
-                CurrentDirectory = info.Parent.FullName;
+            if (newPath == "..")
+                CurrentDirectory = GetCurrentDirectoryParent();
             else if (Directory.Exists(Path.Combine(CurrentDirectory, newPath)))
                 CurrentDirectory = Path.Combine(CurrentDirectory, newPath);
             else
                 throw new DirectoryNotFoundException($"Directory {newPath} doesn't exist");
+        }
+
+        public static string GetCurrentDirectoryParent()
+        {
+            DirectoryInfo info = new DirectoryInfo(CurrentDirectory);
+
+            return info.Parent != null ? info.Parent.FullName : GetRootPath(); 
         }
     }
 }

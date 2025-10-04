@@ -22,7 +22,9 @@ namespace AzureOS.System.Core.Commands
             }
             else
             {
-                if (args.HasFlag("all"))
+                if (args.Options[0] == "..")
+                    dirP = DirUtils.GetCurrentDirectoryParent();
+                else if (args.HasFlag("all"))
                     dirP = DirUtils.GetRootPath();
                 else
                     dirP = Path.Combine(DirUtils.GetCurrentDirectory(), args.Options[0]);
