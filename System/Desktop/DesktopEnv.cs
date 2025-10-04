@@ -8,6 +8,8 @@ using Cosmos.Core.Memory;
 using Cosmos.System;
 using Cosmos.System.Graphics;
 using CosmosTTF;
+using PBOS.System.Core.Desktop.Processing;
+using PBOS.System.Core.Desktop.Apps;
 
 namespace PBOS.System.Core.Desktop
 {
@@ -58,11 +60,15 @@ namespace PBOS.System.Core.Desktop
             {
                 Kernel.Shutdown(true);
             });
+
+            ProcessManager.Start(new TestApp(), new WindowData("Test App", 200, 200, 500, 300, true), "test");
         }
 
         public static void Update()
         {
             MainCanvas.DrawImage(Wallpaper, 0, 0);
+            ProcessManager.Update();
+            WindowManager.MoveWindows();
             TBar.Display();
             MainCanvas.DrawImageAlpha(Cursor, (int)MouseManager.X, (int)MouseManager.Y);
             MainCanvas.Display();
