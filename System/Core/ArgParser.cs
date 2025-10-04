@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace AzureOS.System.Core
+namespace PBOS.System.Core
 {
     public static class ArgParser
     {

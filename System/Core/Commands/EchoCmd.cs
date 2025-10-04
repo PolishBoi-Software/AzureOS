@@ -1,6 +1,6 @@
 using System;
 
-namespace AzureOS.System.Core.Commands
+namespace PBOS.System.Core.Commands
 {
     public class EchoCmd : Command
     {

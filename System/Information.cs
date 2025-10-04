@@ -1,6 +1,6 @@
 using System;
 
-namespace AzureOS.System
+namespace PBOS.System
 {
     public static class Information
     {

@@ -1,11 +1,11 @@
 <div align="center">
-    <img src="Images/AzureOS_Logo.png">
+    <img src="Images/PBOS_Logo.png">
 </div>
 
 > [!warning]
-> AzureOS is currently a **work in progress**, meaning it can or **will** break.<br>If you encounter any issues with the OS, please create a GitHub issue.<br>**Contributors are welcome!**
+> PBOS is currently a **work in progress**, meaning it can or **will** break.<br>If you encounter any issues with the OS, please create a GitHub issue.<br>**Contributors are welcome!**
 
-**AzureOS** is an operating system developed in C# using CosmosOS.
+**PBOS** is an operating system developed in C# using CosmosOS.
 
 # Features
 - FAT32 file system **(UNSTABLE ON PHYSICAL HARDWARE)**

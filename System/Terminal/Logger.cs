@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace AzureOS.System.Terminal
+namespace PBOS.System.Terminal
 {
     public static class Logger
     {

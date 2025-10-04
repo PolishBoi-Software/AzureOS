@@ -1,6 +1,6 @@
 using System;
 
-namespace AzureOS.System.Terminal
+namespace PBOS.System.Terminal
 {
     public static class TermUtils
     {

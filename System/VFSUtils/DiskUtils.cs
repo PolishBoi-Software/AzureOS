@@ -1,10 +1,10 @@
 using System;
-using AzureOS.System.Terminal;
+using PBOS.System.Terminal;
 using Cosmos.System.FileSystem;
 using Cosmos.System.FileSystem.FAT;
 using Cosmos.System.FileSystem.VFS;
 
-namespace AzureOS.System.VFSUtils
+namespace PBOS.System.VFSUtils
 {
     public static class DiskUtils
     {

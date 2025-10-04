@@ -1,9 +1,9 @@
 using System;
-using AzureOS.System.Core;
-using AzureOS.System.VFSUtils;
+using PBOS.System.Core;
+using PBOS.System.VFSUtils;
 using CosmosUsers;
 
-namespace AzureOS.System.Terminal
+namespace PBOS.System.Terminal
 {
     public static class Shell
     {
@@ -14,7 +14,7 @@ namespace AzureOS.System.Terminal
             Cosmos.System.PCSpeaker.Beep(Cosmos.System.Notes.A5, Cosmos.System.Durations.Eighth);
             Cosmos.System.PCSpeaker.Beep(Cosmos.System.Notes.B5, Cosmos.System.Durations.Quarter);
             Cosmos.System.PCSpeaker.Beep(Cosmos.System.Notes.A5, Cosmos.System.Durations.Quarter);
-            Console.WriteLine($"Welcome to AzureOS {Information.Version}!");
+            Console.WriteLine($"Welcome to PBOS {Information.Version}!");
         }
 
         public static void PrintPrompt()
@@ -79,6 +79,7 @@ namespace AzureOS.System.Terminal
                         Logger.Log($"User {uname} not found!", LogType.Error);
                         continue;
                     }
+                    usernameEntered = true;
                 }
                 Console.Write("Password: ");
                 var passwd = Console.ReadLine();

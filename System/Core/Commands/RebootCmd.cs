@@ -1,11 +1,11 @@
 using System;
 using System.IO;
-using AzureOS.System.Terminal;
-using AzureOS.System.VFSUtils;
+using PBOS.System.Terminal;
+using PBOS.System.VFSUtils;
 using Cosmos.Core;
 using Cosmos.System.FileSystem.VFS;
 
-namespace AzureOS.System.Core.Commands
+namespace PBOS.System.Core.Commands
 {
     public class RebootCmd : Command
     {

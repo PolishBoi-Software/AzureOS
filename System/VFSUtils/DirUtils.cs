@@ -1,7 +1,7 @@
 using System;
 using System.IO;
 
-namespace AzureOS.System.VFSUtils
+namespace PBOS.System.VFSUtils
 {
     public static class DirUtils
     {

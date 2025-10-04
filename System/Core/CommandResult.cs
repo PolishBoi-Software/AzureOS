@@ -1,6 +1,6 @@
 using System;
 
-namespace AzureOS.System.Core
+namespace PBOS.System.Core
 {
     public enum CommandResult
     {

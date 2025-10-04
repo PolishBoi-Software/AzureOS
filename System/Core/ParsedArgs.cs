@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace AzureOS.System.Core
+namespace PBOS.System.Core
 {
     public class ParsedArgs
     {

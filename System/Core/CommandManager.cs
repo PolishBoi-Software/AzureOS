@@ -1,9 +1,9 @@
 using System;
 using System.Collections.Generic;
-using AzureOS.System.Core.Commands;
-using AzureOS.System.Terminal;
+using PBOS.System.Core.Commands;
+using PBOS.System.Terminal;
 
-namespace AzureOS.System.Core
+namespace PBOS.System.Core
 {
     public static class CommandManager
     {
@@ -63,6 +63,7 @@ namespace AzureOS.System.Core
             Register(new RmCmd());
             Register(new DateTimeCmd());
             Register(new CatCmd());
+            Register(new GuiCmd());
         }
     }
 }

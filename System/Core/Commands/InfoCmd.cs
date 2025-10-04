@@ -1,9 +1,9 @@
 using System;
-using AzureOS.System.Terminal;
+using PBOS.System.Terminal;
 using Cosmos.Core;
 using Cosmos.System.FileSystem.VFS;
 
-namespace AzureOS.System.Core.Commands
+namespace PBOS.System.Core.Commands
 {
     public class InfoCmd : Command
     {
@@ -13,7 +13,7 @@ namespace AzureOS.System.Core.Commands
 
         public override CommandResult Run(ParsedArgs args)
         {
-            Console.WriteLine($"AzureOS {Information.Version}");
+            Console.WriteLine($"PBOS {Information.Version}");
             Console.WriteLine($"CPU: {CPU.GetCPUBrandString()}");
             Console.WriteLine($"RAM: {GCImplementation.GetUsedRAM() / (1024 * 1024)} MB / {GCImplementation.GetAvailableRAM()} MB");
             Console.WriteLine($"Storage: {VFSManager.GetAvailableFreeSpace(@"0:\") / (1024 * 1024)} MB free of {VFSManager.GetTotalFreeSpace(@"0:\") / (1024 * 1024)} MB");
