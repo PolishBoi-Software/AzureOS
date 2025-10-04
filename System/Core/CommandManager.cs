@@ -61,6 +61,7 @@ namespace AzureOS.System.Core
             Register(new RebootCmd());
             Register(new ShutdownCmd());
             Register(new RmCmd());
+            Register(new DateTimeCmd());
         }
     }
 }
