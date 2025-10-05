@@ -14,7 +14,7 @@ namespace PBOS.System.Core.Desktop.Components
         public abstract void Update();
 
         /// <summary>
-        /// Used to actually show the component in the desktop, this will also call <see cref="Update"/>
+        /// Used to actually show the component in the desktop, this will also call <see cref="Update"/> if needed
         /// </summary>
         public abstract void Display();
     }

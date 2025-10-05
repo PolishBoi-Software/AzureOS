@@ -31,19 +31,9 @@ namespace PBOS.System.Core.Desktop.Processing
             }
         }
 
-        private static Process GetProcess(Process proc)
-        {
-            foreach (var process in Processes)
-            {
-                if (process == proc)
-                    return process;
-            }
-            return null;
-        }
-
         public static void Kill(Process proc)
         {
-            if (GetProcess(proc) == null)
+            if (!Processes.Contains(proc))
                 return;
 
             proc.OnExit();

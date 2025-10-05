@@ -13,6 +13,15 @@ namespace PBOS.System.Core.Desktop
         private static Process Resizing;
         private static int ResizeZoneOffset = 25;
 
+        public static void BringToFront(Process proc)
+        {
+            if (ProcessManager.Processes.Contains(proc))
+            {
+                ProcessManager.Processes.Remove(proc);
+                ProcessManager.Processes.Add(proc);
+            }
+        }
+
         public static void ResizeWindows()
         {
             if (Resizing != null)
@@ -31,6 +40,7 @@ namespace PBOS.System.Core.Desktop
                     if (MouseUtils.IsHovering(rect))
                     {
                         Resizing = proc;
+                        BringToFront(Resizing);
                     }
                 }
             }
@@ -61,6 +71,7 @@ namespace PBOS.System.Core.Desktop
                         OldX = (int)MouseManager.X - proc.Window.X;
                         OldY = (int)MouseManager.Y - proc.Window.Y;
                         Grabbing = proc;
+                        BringToFront(Grabbing);
                     }
                 }
             }

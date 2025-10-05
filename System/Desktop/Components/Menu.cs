@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Threading.Tasks;
+using Cosmos.System;
 
 namespace PBOS.System.Core.Desktop.Components
 {
@@ -8,7 +10,7 @@ namespace PBOS.System.Core.Desktop.Components
     {
         public override int X { get; set; }
         public override int Y { get; set; }
-        public const int Height = 800;
+        public const int Height = 1000;
         public const int Width = 600;
         public bool Open { get; set; }
         public List<Button> Items { get; set; } = new List<Button>();
