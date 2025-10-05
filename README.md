@@ -12,6 +12,7 @@
 - A basic user system
 - A basic shell
 - Basic shell commands
+- A desktop environment
 
 # Running
 - Install CosmosOS
