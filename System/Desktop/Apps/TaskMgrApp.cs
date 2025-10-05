@@ -1,7 +1,6 @@
 using System;
 using PBOS.System.Core.Desktop.Components;
 using PBOS.System.Core.Desktop.Processing;
-using PBOS.System.Terminal;
 
 namespace PBOS.System.Core.Desktop.Apps
 {
