@@ -11,7 +11,7 @@ namespace PBOS.System.Core.Commands
     {
         public override string Name => "rm";
 
-        public override string Description => "Deletes the specified file.";
+        public override string Description => "Deletes a specified file.";
 
         public override CommandResult Run(ParsedArgs args)
         {
