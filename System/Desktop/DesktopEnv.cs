@@ -51,6 +51,11 @@ namespace PBOS.System.Core.Desktop
             FinishedLoading = true;
             TBar = new Taskbar();
 
+            TBar.Menu.AddItem("Task Manager", () =>
+            {
+                ProcessManager.Start(new TaskMgrApp(), new WindowData("Task Manager", 200, 200, 600, 800, true), "taskmgr");
+            });
+
             TBar.Menu.AddItem("Shutdown", () =>
             {
                 Kernel.Shutdown();
@@ -60,14 +65,13 @@ namespace PBOS.System.Core.Desktop
             {
                 Kernel.Shutdown(true);
             });
-
-            ProcessManager.Start(new TestApp(), new WindowData("Test App", 200, 200, 500, 300, true), "test");
         }
 
         public static void Update()
         {
             MainCanvas.DrawImage(Wallpaper, 0, 0);
             ProcessManager.Update();
+            WindowManager.ResizeWindows();
             WindowManager.MoveWindows();
             TBar.Display();
             MainCanvas.DrawImageAlpha(Cursor, (int)MouseManager.X, (int)MouseManager.Y);

@@ -24,8 +24,9 @@ namespace PBOS.System.Core.Desktop.Processing
 
         public static void Update()
         {
-            foreach (var proc in Processes)
+            for (int i = Processes.Count - 1; i >= 0; i--)
             {
+                Process proc = Processes[i];
                 proc.Run();
             }
         }
