@@ -39,8 +39,8 @@ namespace PBOS.System.Core.Desktop
 
                     if (MouseUtils.IsHovering(rect))
                     {
+                        BringToFront(proc);
                         Resizing = proc;
-                        BringToFront(Resizing);
                     }
                 }
             }
@@ -68,10 +68,10 @@ namespace PBOS.System.Core.Desktop
 
                     if (MouseUtils.IsHovering(rect))
                     {
+                        BringToFront(proc);
                         OldX = (int)MouseManager.X - proc.Window.X;
                         OldY = (int)MouseManager.Y - proc.Window.Y;
                         Grabbing = proc;
-                        BringToFront(Grabbing);
                     }
                 }
             }
