@@ -9,6 +9,7 @@ namespace PBOS.System.Terminal
     {
         public static void Start()
         {
+            Console.Clear();
             Cosmos.System.PCSpeaker.Beep(Cosmos.System.Notes.A5, Cosmos.System.Durations.Eighth);
             Cosmos.System.PCSpeaker.Beep(Cosmos.System.Notes.E5, Cosmos.System.Durations.Eighth);
             Cosmos.System.PCSpeaker.Beep(Cosmos.System.Notes.A5, Cosmos.System.Durations.Eighth);
