@@ -62,6 +62,7 @@ namespace PBOS.System.Terminal
         {
             bool usernameEntered = false;
             string uname = string.Empty;
+            string passwd = string.Empty;
             
             for (int i = 0; i < UserManager.Users.Count; i++)
             {
@@ -78,12 +79,24 @@ namespace PBOS.System.Terminal
                     if (!UserManager.Exists(uname))
                     {
                         Logger.Log($"User {uname} not found!", LogType.Error);
-                        continue;
+                        Logger.Log("Would you like to create one?", LogType.Info);
+                        if (Console.ReadKey(true).Key == ConsoleKey.Y)
+                        {
+                            Console.Write("Password: ");
+                            passwd = Console.ReadLine();
+                            User usr = UserManager.CreateUser(uname, passwd);
+                            Kernel.CurrentUser = usr;
+                            usr.Save();
+                        }
+                        else
+                        {
+                            continue;
+                        }
                     }
                     usernameEntered = true;
                 }
                 Console.Write("Password: ");
-                var passwd = Console.ReadLine();
+                passwd = Console.ReadLine();
                 var user = UserManager.AuthUser(uname, passwd);
                 if (user == null)
                 {
