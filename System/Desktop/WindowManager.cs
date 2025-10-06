@@ -55,8 +55,8 @@ namespace PBOS.System.Core.Desktop
         {
             if (Grabbing != null)
             {
-                Grabbing.Window.X = Math.Max(0, Math.Min((int)DesktopEnv.MainCanvas.Mode.Width, (int)MouseManager.X - OldX));
-                Grabbing.Window.Y = Math.Max(0, Math.Min((int)DesktopEnv.MainCanvas.Mode.Height, (int)MouseManager.Y - OldY));
+                Grabbing.Window.X = Math.Max(0, Math.Min(DesktopEnv.MainDisplay.Width, (int)MouseManager.X - OldX));
+                Grabbing.Window.Y = Math.Max(0, Math.Min(DesktopEnv.MainDisplay.Height, (int)MouseManager.Y - OldY));
             }
             else if (MouseManager.MouseState == MouseState.Left)
             {

@@ -25,12 +25,10 @@
         <PackageReference Include="Cosmos.Debug.Kernel" Version="0-*" NoWarn="NU1604" />
         <PackageReference Include="Cosmos.System2" Version="0-*" NoWarn="NU1604" />
         <PackageReference Include="Cosmos.Plugs" Version="0-*" NoWarn="NU1604" />
+        <PackageReference Include="GrapeGL" Version="1.1.2" />
     </ItemGroup>
 
     <ItemGroup>
-        <Reference Include="CosmosTTF">
-            <HintPath>.\DLLs\CosmosTTF.dll</HintPath>
-        </Reference>
         <Reference Include="CosmosUsers">
             <HintPath>.\DLLs\CosmosUsers.dll</HintPath>
         </Reference>

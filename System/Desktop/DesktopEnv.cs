@@ -6,22 +6,22 @@ using System.Threading.Tasks;
 using PBOS.System.Core.Desktop.Components;
 using Cosmos.Core.Memory;
 using Cosmos.System;
-using Cosmos.System.Graphics;
-using CosmosTTF;
 using PBOS.System.Core.Desktop.Processing;
 using PBOS.System.Core.Desktop.Apps;
+using GrapeGL.Graphics.Fonts;
+using GrapeGL.Hardware.GPU;
+using GrapeGL.Graphics;
 
 namespace PBOS.System.Core.Desktop
 {
     public static class DesktopEnv
     {
-        public static Canvas MainCanvas { get; set; } = null;
+        public static Display MainDisplay { get; set; } = null;
         public static bool FinishedLoading = false;
-        public static Bitmap Cursor { get; set; }
-        public static Bitmap Wallpaper { get; set; }
-        public static TTFFont Bold { get; set; }
-        public static TTFFont Regular { get; set; }
-        public static CGSSurface Surface { get; set; }
+        public static Canvas Cursor { get; set; }
+        public static Canvas Wallpaper { get; set; }
+        public static AcfFontFace Bold { get; set; }
+        public static AcfFontFace Regular { get; set; }
         private static int LastHeap = 0;
         public static bool DoGui = false;
         private static Taskbar TBar;
@@ -29,25 +29,24 @@ namespace PBOS.System.Core.Desktop
         public static void Init()
         {
             DoGui = true;
-            MainCanvas = FullScreenCanvas.GetFullScreenCanvas(new Mode(1920, 1080, ColorDepth.ColorDepth32));
-            Surface = new CGSSurface(MainCanvas);
-            LoadingScreen.Init(MainCanvas);
+            MainDisplay = Display.GetDisplay(1920, 1080);
+            LoadingScreen.Init(MainDisplay);
             if (!FinishedLoading)
             {
                 LoadingScreen.SetStatusMessage("Loading cursor...");
-                Cursor = new Bitmap(File.ReadAllBytes(@"1:\cursor.bmp"));
+                Cursor = Image.FromPNG(File.ReadAllBytes(@"1:\cursor.png"));
                 LoadingScreen.SetStatusMessage("Loading wallpaper...");
-                Wallpaper = new Bitmap(File.ReadAllBytes(@"1:\wallpaper.bmp"));
+                Wallpaper = Image.FromPNG(File.ReadAllBytes(@"1:\wallpaper.png"));
                 LoadingScreen.SetStatusMessage("Loading bold font...");
-                Bold = new TTFFont(File.ReadAllBytes(@"1:\interbold.ttf"));
+                Bold = new AcfFontFace(new MemoryStream(File.ReadAllBytes(@"1:\interbold.acf")));
                 LoadingScreen.SetStatusMessage("Loading regular font...");
-                Regular = new TTFFont(File.ReadAllBytes(@"1:\interregular.ttf"));
+                Regular = new AcfFontFace(new MemoryStream(File.ReadAllBytes(@"1:\interregular.acf")));
                 LoadingScreen.SetStatusMessage("Finished");
                 Thread.Sleep(500);
             }
-            MouseManager.ScreenWidth = MainCanvas.Mode.Width;
-            MouseManager.ScreenHeight = MainCanvas.Mode.Height;
-            MainCanvas.Clear();
+            MouseManager.ScreenWidth = MainDisplay.Width;
+            MouseManager.ScreenHeight = MainDisplay.Height;
+            MainDisplay.Clear();
             FinishedLoading = true;
             TBar = new Taskbar();
 
@@ -69,13 +68,13 @@ namespace PBOS.System.Core.Desktop
 
         public static void Update()
         {
-            MainCanvas.DrawImage(Wallpaper, 0, 0);
+            MainDisplay.DrawImage(0, 0, Wallpaper, false);
             ProcessManager.Update();
             WindowManager.ResizeWindows();
             WindowManager.MoveWindows();
             TBar.Display();
-            MainCanvas.DrawImageAlpha(Cursor, (int)MouseManager.X, (int)MouseManager.Y);
-            MainCanvas.Display();
+            MainDisplay.DrawImage((int)MouseManager.X, (int)MouseManager.Y, Cursor);
+            MainDisplay.Update();
             if (LastHeap % 20 == 0) Heap.Collect();
             LastHeap++;
         }

@@ -1,4 +1,4 @@
-using System.Drawing;
+using GrapeGL.Graphics;
 
 namespace PBOS.System.Utils
 {
@@ -9,7 +9,7 @@ namespace PBOS.System.Utils
             byte r = (byte)(src.R + intensity);
             byte g = (byte)(src.G + intensity);
             byte b = (byte)(src.B + intensity);
-            return Color.FromArgb(r, g, b);
+            return new Color(r, g, b);
         }
 
         public static Color Darken(Color src, byte intensity)
@@ -17,7 +17,7 @@ namespace PBOS.System.Utils
             byte r = (byte)(src.R - intensity);
             byte g = (byte)(src.G - intensity);
             byte b = (byte)(src.B - intensity);
-            return Color.FromArgb(r, g, b);
+            return new Color(r, g, b);
         }
     }   
 }

@@ -24,7 +24,7 @@ namespace PBOS.System.Core.Desktop.Components
 
         public void AddItem(string text, Action onClick)
         {
-            Button btn = new Button(X + 10, Y, CatppuccinMocha.Base, CatppuccinMocha.Text, text, DesktopEnv.Bold, 24, () =>
+            Button btn = new Button(X + 10, Y, CatppuccinMocha.Base, CatppuccinMocha.Text, text, DesktopEnv.Bold, () =>
             {
                 Open = false;
                 onClick?.Invoke();
@@ -37,8 +37,8 @@ namespace PBOS.System.Core.Desktop.Components
             if (!Open) return;
 
             int itemY = 60;
-            DesktopEnv.MainCanvas.DrawFilledRectangle(CatppuccinMocha.Crust, X, Y, Width, Height);
-            DesktopEnv.Bold.DrawToSurface(DesktopEnv.Surface, 34, X + 10, Y + 34 + 10, $"Hello, {Kernel.CurrentUser.Name}!", CatppuccinMocha.Text);
+            DesktopEnv.MainDisplay.DrawFilledRectangle(X, Y, Width, Height, 16, CatppuccinMocha.Crust);
+            DesktopEnv.MainDisplay.DrawString(X + 10, Y + 10, $"Hello, {Kernel.CurrentUser.Name}!", DesktopEnv.Bold, CatppuccinMocha.Text);
             foreach (var item in Items)
             {
                 item.Y = Y + itemY;

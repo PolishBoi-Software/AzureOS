@@ -22,3 +22,9 @@
 - Open VMware Player
 - Create a new virtual machine and attach the ISO as the main disk image (Make sure to give it a hard disk image (Must be IDE!), about 256 MB should be good enough)
 - Run it
+
+# TODO
+- Use GrapeGL instead of standard CGS [ ]
+- Add more apps [ ]
+- Make the DE better (GrapeGL will actually help) [ ]
+- Switch to PNG (GrapeGL has native support) [ ]

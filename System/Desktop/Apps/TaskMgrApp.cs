@@ -17,7 +17,7 @@ namespace PBOS.System.Core.Desktop.Apps
             WindowDrawing.DrawWindow(CatppuccinMocha.Mantle, this);
             foreach (var proc in ProcessManager.Processes)
             {
-                Button btn = new Button(Window.X + 10, Window.Y + WindowDrawing.TopSize + itemY + 10, CatppuccinMocha.Base, CatppuccinMocha.Text, proc.Name, DesktopEnv.Regular, 16, () =>
+                Button btn = new Button(Window.X + 10, Window.Y + WindowDrawing.TopSize + itemY + 10, CatppuccinMocha.Base, CatppuccinMocha.Text, proc.Name, DesktopEnv.Regular, () =>
                 {
                     ProcessManager.Kill(proc);
                 });

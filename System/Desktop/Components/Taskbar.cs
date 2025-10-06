@@ -15,7 +15,7 @@ namespace PBOS.System.Core.Desktop.Components
             X = 0;
             Y = 0;
             Menu = new Menu();
-            MenuBtn = new Button(10, (Height / 2) - 10, CatppuccinMocha.Base, CatppuccinMocha.Text, "Menu", DesktopEnv.Bold, 20, () =>
+            MenuBtn = new Button(10, (Height / 2) - 10, CatppuccinMocha.Base, CatppuccinMocha.Text, "Menu", DesktopEnv.Bold, () =>
             {
                 Menu.Open = !Menu.Open;
             });
@@ -23,7 +23,7 @@ namespace PBOS.System.Core.Desktop.Components
 
         public override void Display()
         {
-            DesktopEnv.MainCanvas.DrawFilledRectangle(CatppuccinMocha.Crust, X, Y, (int)DesktopEnv.MainCanvas.Mode.Width - X, Height);
+            DesktopEnv.MainDisplay.DrawFilledRectangle(X, Y, (ushort)(DesktopEnv.MainDisplay.Width - X), Height, 0, CatppuccinMocha.Crust);
             MenuBtn.Display();
             Menu.Display();
         }

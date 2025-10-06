@@ -1,18 +1,21 @@
 using System;
-using System.Drawing;
 using Cosmos.System.Graphics;
 using Cosmos.System.Graphics.Fonts;
 using Cosmos.System.Network.IPv4.TCP;
+using GrapeGL.Graphics;
+using GrapeGL.Graphics.Fonts;
+using GrapeGL.Hardware.GPU;
 
 namespace PBOS.System.Core.Desktop
 {
     public static class LoadingScreen
     {
         private static string StatusMessage = string.Empty;
-        private static Canvas Canv;
-        public static void Init(Canvas canv)
+        public static AcfFontFace fnt;
+        private static Display Displ;
+        public static void Init(Display canv)
         {
-            Canv = canv;
+            Displ = canv;
         }
 
         public static void SetStatusMessage(string message)
@@ -23,13 +26,12 @@ namespace PBOS.System.Core.Desktop
 
         public static void Update()
         {
-            Canv.Clear();
-            int textCenterX = ((int)Canv.Mode.Width / 2) - (Kernel.PSFFont.Width * StatusMessage.Length / 2);
-            int logoCenterX = ((int)Canv.Mode.Width / 2) - ((int)Kernel.Logo.Width / 2);
-            int logoCenterY = ((int)Canv.Mode.Height / 2) - ((int)Kernel.Logo.Height / 2);
-            Canv.DrawImageAlpha(Kernel.Logo, logoCenterX, logoCenterY);
-            Canv.DrawString(StatusMessage, Kernel.PSFFont, Color.White, textCenterX, (int)Canv.Mode.Height - 100);
-            Canv.Display();
+            Displ.Clear();
+            int logoCenterX = (Displ.Width / 2) - (Kernel.Logo.Width / 2);
+            int logoCenterY = (Displ.Height / 2) - (Kernel.Logo.Height / 2);
+            Displ.DrawImage(logoCenterX, logoCenterY, Kernel.Logo);
+            Displ.DrawString(0, Displ.Height - 500, StatusMessage, fnt, Color.White, true);
+            Displ.Update();
         }
     }
 }
