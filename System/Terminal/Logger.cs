@@ -9,7 +9,7 @@ namespace PBOS.System.Terminal
         {
             Console.ForegroundColor = type switch
             {
-                LogType.OK => ConsoleColor.Red,
+                LogType.OK => ConsoleColor.Green,
 
                 LogType.Error => ConsoleColor.Red,
 
